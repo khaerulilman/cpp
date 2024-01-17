@@ -1,0 +1,45 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+
+    int panjang[10] = {11, 23, 17, 20, 9, 16, 42, 13, 37, 10};
+
+    cout << "program sebelum dimodifikasi" << endl;
+
+    for (int k = 0; k < 10; k++)
+    {
+        if (k == 9)
+        {
+            cout << panjang[k];
+        }
+        else
+        {
+            cout << panjang[k] << ",";
+        }
+    }
+
+    cout << endl;
+
+    int evenSum = 0;
+    int oddSum = 0;
+
+    for (int i = 0; i < 10; i++)
+    {
+        if (panjang[i] % 2 == 0)
+        {
+            evenSum += panjang[i];
+        }
+        else if (panjang[i] % 2 == 1)
+        {
+            oddSum += panjang[i];
+        }
+    }
+
+    cout << "Jumlah bilangan genap: " << evenSum << endl;
+    cout << "Jumlah bilangan ganjil: " << oddSum << endl;
+
+    return 0;
+}

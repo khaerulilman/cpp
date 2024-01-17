@@ -1,0 +1,201 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+const int jumlah_matkul = 4;
+
+struct Atribut_mahasiswa
+{
+    string nim;
+    string nama;
+    float nilai[jumlah_matkul];
+};
+
+float rata_rata(float nilai[])
+{
+    float hasil = 0;
+    for (int i = 0; i < jumlah_matkul; i++)
+    {
+        hasil = hasil + nilai[i];
+    }
+    return (hasil / jumlah_matkul);
+}
+
+int main()
+{
+    char ulang;
+    int kode_jurusan;
+
+    cout << "===UJIAN AKHIR SEMESTER===" << endl
+         << endl;
+    cout << "Nama : Mochammad khaerul ilman" << endl;
+    cout << "NIM  : 1227050073" << endl;
+    cout << endl;
+
+    string matkul_IF[4] = {"Dasar Pemrograman", "Struktur Data", "Algoritma Pemrograman", "Rekayasa Perangkat Lunak"};
+    string matkul_ILKOM[4] = {"Rekayasa Perangkat Lunak", "Jaringan Komputer", "Sistem Cerdas", "Sistem Digital"};
+    string matkul_SISIF[4] = {"Rekayasa Sistem Informasi", "Algoritma Pemrograman", "Struktur Data", "Konsep Sistem Informasi"};
+
+    cout << "Bismillaahirrahmaanirrahiim, Saya Mochammad khaerul ilman, berjanji akan mengerjakan soal UAS ini dengan sungguh-sungguh dan  " << endl;
+    cout << "maksimal dengan usaha sendiri, TIDAK melihat pekerjaan orang lain, serta mematuhi peraturan selama ujian. " << endl;
+    cout << "Jika saya tidak menepati janji ini, saya yang menanggung risikonya. " << endl;
+
+    cout << endl;
+    cout << "Kode Jurusan:" << endl;
+    cout << "Teknik Informatika : 1001" << endl;
+    cout << "Ilmu Komputer      : 2002" << endl;
+    cout << "Sistem Informasi   : 3003" << endl
+         << endl;
+
+    cout << "Masukan Kode Jurusan (1001/2002/3003) = ";
+    cin >> kode_jurusan;
+
+    switch (kode_jurusan)
+    {
+    case 1001:
+        cout << "\n========================================================\n"
+             << "                  TEKNIK INFORMATIKA\n"
+             << "========================================================\n";
+        break;
+
+    case 2002:
+        cout << "\n========================================================\n"
+             << "                     ILMU KOMPUTER\n"
+             << "========================================================\n";
+        break;
+
+    case 3003:
+        cout << "\n========================================================\n"
+             << "                    SISTEM INFORMASI\n"
+             << "========================================================\n";
+        break;
+
+    default:
+        cout << "Pilihan Tidak Tersedia!";
+        break;
+    }
+
+    int jumlah_mahasiswa;
+    cout << "Masukan jumlah mahasiswa : ";
+    cin >> jumlah_mahasiswa;
+    cout << endl;
+    Atribut_mahasiswa mahasiswa[jumlah_mahasiswa];
+
+    for (int i = 0; i < jumlah_mahasiswa; i++)
+    {
+        cout << "Data mahasiswa ke-" << i + 1 << endl;
+        cout << "NIM   : ";
+        cin >> mahasiswa[i].nim;
+        cout << "Nama  : ";
+        cin >> mahasiswa[i].nama;
+        cout << "Masukan Nilai Skala 0-100" << endl;
+        for (int j = 0; j < jumlah_matkul; j++)
+        {
+            if (kode_jurusan == 1001)
+            {
+                cout << matkul_IF[j] << ": ";
+                cin >> mahasiswa[i].nilai[j];
+            }
+            else if (kode_jurusan == 2002)
+            {
+                cout << matkul_ILKOM[j] << ": ";
+                cin >> mahasiswa[i].nilai[j];
+            }
+            else if (kode_jurusan == 3003)
+            {
+                cout << matkul_SISIF[j] << ": ";
+                cin >> mahasiswa[i].nilai[j];
+            }
+        }
+        cout << endl;
+    }
+
+    cout << "\n========================================================\n";
+    cout << "DATA ANDA" << endl;
+    cout << "========================================================\n";
+    for (int i = 0; i < jumlah_mahasiswa; i++)
+    {
+        cout << "Data mahasiswa ke-" << i + 1 << endl;
+        cout << "NIM   : " << mahasiswa[i].nim << endl;
+        cout << "Nama  : " << mahasiswa[i].nama << endl;
+        cout << "Masukan Nilai Skala 0-100" << endl;
+        for (int j = 0; j < jumlah_matkul; j++)
+        {
+            if (kode_jurusan == 1001)
+            {
+                cout << matkul_IF[j] << ": " << mahasiswa[i].nilai[j] << endl;
+            }
+            else if (kode_jurusan == 2002)
+            {
+                cout << matkul_ILKOM[j] << ": " << mahasiswa[i].nilai[j] << endl;
+            }
+            else if (kode_jurusan == 3003)
+            {
+                cout << matkul_SISIF[j] << ": " << mahasiswa[i].nilai[j] << endl;
+            }
+        }
+        cout << "Rata-rata Nilai Akhir: " << rata_rata(mahasiswa[i].nilai) << endl
+             << endl;
+    }
+}
+
+/*
+===UJIAN AKHIR SEMESTER===
+
+Nama : Mochammad khaerul ilman     
+NIM  : 1227050073
+maksimal dengan usaha sendiri, TIDAK melihat pekerjaan orang lain, serta mematuhi peraturan selama ujian.Jika saya tidak menepati janji ini, saya yang menanggung risikonya.        
+Kode Jurusan:
+Teknik Informatika : 1001
+Ilmu Komputer      : 2002
+Sistem Informasi   : 3003
+
+Masukan Kode Jurusan (1001/2002/3003) = 1001
+
+========================================================
+                  TEKNIK INFORMATIKA
+========================================================
+Masukan jumlah mahasiswa : 2
+
+Data mahasiswa ke-1
+NIM   : 23
+Nama  : rt
+Masukan Nilai Skala 0-100
+Dasar Pemrograman: 34
+Struktur Data: 90
+Algoritma Pemrograman: 90
+Rekayasa Perangkat Lunak: 39
+
+Data mahasiswa ke-2
+NIM   : 90
+Nama  : 49
+Masukan Nilai Skala 0-100
+Dasar Pemrograman: 23
+Struktur Data: 23
+Algoritma Pemrograman: 34
+Rekayasa Perangkat Lunak: 34
+
+
+========================================================
+DATA ANDA
+========================================================
+Data mahasiswa ke-1
+NIM   : 23
+Nama  : rt
+Masukan Nilai Skala 0-100
+Dasar Pemrograman: 34
+Struktur Data: 90
+Algoritma Pemrograman: 90
+Rekayasa Perangkat Lunak: 39
+Rata-rata Nilai Akhir: 63.25
+
+Data mahasiswa ke-2
+NIM   : 90
+Nama  : 49
+Masukan Nilai Skala 0-100
+Dasar Pemrograman: 23
+Struktur Data: 23
+Algoritma Pemrograman: 34
+Rekayasa Perangkat Lunak: 34
+Rata-rata Nilai Akhir: 28.5
+*/

@@ -1,0 +1,259 @@
+#include <iostream>
+#include <string>
+#include <conio.h>
+using namespace std;
+
+int main()
+{
+     int pilihan;
+     int pin = 123456;
+     int jumlah_barang;
+     float harga_satuan;
+     float harga_total;
+     string metode_pembayaran;
+     const int MAX_BARANG = 100;
+     string barang[MAX_BARANG];
+     int harga[MAX_BARANG];
+     int n_barang;
+     char pilih;
+     int total_harga = 0;
+     int n_beli[MAX_BARANG] = {0};
+
+     // cout << "Nama : Mochammad khaerul ilman" << endl;
+     // cout << "Nim  : 1227050073" << endl;
+
+     cout << "masukan code pin account E-Commerce anda : ";
+     cin >> pin;
+     if (pin == 123456)
+     {
+          do
+          {
+               cout << "Selamat datang di Toko Pakaian Online" << endl;
+               cout << "Pilih menu yang diinginkan:" << endl;
+               cout << "1. Jual barang" << endl;
+               cout << "2. Beli barang" << endl;
+               cout << "pilih opsi (1,2) = ";
+               cin >> pilihan;
+
+               // Menu jual barang
+               cout << endl;
+               if (pilihan == 1)
+               {
+                    cout << "Masukkan jumlah barang yang akan dijual (maksimal " << MAX_BARANG << "): ";
+                    cin >> n_barang;
+
+                    for (int i = 0; i < n_barang; i++)
+                    {
+                         cout << "Masukkan nama barang ke-" << i + 1 << ": ";
+                         cin >> barang[i];
+                         cout << "Masukkan harga barang " << barang[i] << ": ";
+                         cin >> harga[i];
+                         cout << endl;
+                    }
+
+                    // Tampilkan daftar barang yang telah diinputkan
+                    cout << "Daftar barang yang anda jual di E-commerce kami : " << endl;
+                    for (int i = 0; i < n_barang; i++)
+                    {
+                         cout << i + 1 << ". " << barang[i] << " - Rp" << harga[i] << endl;
+                    }
+                    cout << endl;
+
+               } // Menu beli barang
+               else if (pilihan == 2)
+               {
+                    const int MAX_BARANG = 7;
+                    string barang[MAX_BARANG] = {"kaos", "jeans", "kemeja", "jaket", "sweeter", "celana dalam", "kaos dalam"};
+                    int harga[MAX_BARANG] = {50000, 70000, 90000, 150000, 130000, 10000, 10000};
+                    int n_barang = 7;
+
+                    cout << "Daftar barang yang ada di E-commerce kami:" << endl;
+                    for (int i = 0; i < n_barang; i++)
+                    {
+                         cout << i + 1 << ". " << barang[i] << " - Rp" << harga[i] << endl;
+                    }
+
+                    // Program beli barang
+                    int total_harga = 0;
+                    int n_beli[MAX_BARANG] = {0};
+
+                    cout << "Masukkan nomor barang yang ingin dibeli (tekan 0 untuk selesai pembelian) : ";
+                    int nomor_beli;
+                    cin >> nomor_beli;
+
+                    while (nomor_beli != 0)
+                    {
+                         if (nomor_beli < 1 || nomor_beli > n_barang)
+                         {
+                              cout << "Nomor barang tidak valid, silakan coba lagi." << endl;
+                         }
+                         else
+                         {
+                              cout << "Masukkan jumlah " << barang[nomor_beli - 1] << " yang ingin dibeli: ";
+                              int jumlah_beli;
+                              cin >> jumlah_beli;
+
+                              if (jumlah_beli < 0)
+                              {
+                                   cout << "Jumlah tidak valid, silakan coba lagi." << endl;
+                              }
+                              else
+                              {
+                                   total_harga += harga[nomor_beli - 1] * jumlah_beli;
+                                   n_beli[nomor_beli - 1] += jumlah_beli;
+                                   cout << "Barang " << barang[nomor_beli - 1] << " sebanyak " << jumlah_beli << " berhasil ditambahkan ke keranjang harga." << endl;
+                              }
+                              cout << endl;
+                         }
+                         cout << "Masukkan nomor barang yang ingin dibeli (tekan 0 untuk selesai) :";
+                         cin >> nomor_beli;
+                    }
+                    cout << endl;
+
+                    // Tampilkan daftar barang yang dibeli beserta jumlah dan total harganya
+                    cout << "Daftar barang yang dibeli:" << endl;
+                    for (int i = 0; i < n_barang; i++)
+                    {
+                         if (n_beli[i] > 0)
+                         {
+                              cout << "- " << barang[i] << " (" << n_beli[i] << " buah) = Rp" << harga[i] * n_beli[i] << endl;
+                         }
+                    }
+
+                    cout << "Total harga membeli pakaian : Rp" << total_harga << endl;
+                    cout << endl;
+
+                    // fitur ongkir
+
+                    int jarak;
+                    float ongkir, diskon = 0;
+
+                    cout << "Masukkan jarak pengiriman (km): ";
+                    cin >> jarak;
+
+                    // Menghitung biaya ongkir
+                    if (total_harga >= 500000 && jarak <= 10)
+                    {
+                         ongkir = 0;
+                         cout << "Selamat, anda mendapatkan gratis ongkir!" << endl;
+                    }
+                    else
+                    {
+                         if (jarak <= 10)
+                         {
+                              ongkir = 5000 + total_harga * 0.01;
+                         }
+                         else if (jarak <= 25)
+                         {
+                              ongkir = 7000 + total_harga * 0.015;
+                         }
+                         else
+                         {
+                              ongkir = 9000 + total_harga * 0.02;
+                         }
+                    }
+
+                    // Menentukan diskon
+                    if (total_harga >= 500000)
+                    {
+                         diskon = 0.1 * total_harga;
+                    }
+                    else if (total_harga >= 200000)
+                    {
+                         diskon = 0.05 * total_harga;
+                    }
+
+                    // Menampilkan biaya ongkir dan diskon
+                    cout << "Biaya ongkir: Rp" << ongkir << endl;
+                    cout << "Diskon: Rp" << diskon << endl;
+
+                    // Menampilkan total pembayaran
+                    float total_pembayaran = total_harga + ongkir - diskon;
+                    cout << "Total pembayaran: Rp" << total_pembayaran << endl;
+                    cout << endl;
+
+                    // Pilih metode pembayaran
+                    cout << "Pilih metode pembayaran:" << endl;
+                    cout << "1. COD" << endl;
+                    cout << "2. Kartu kredit" << endl;
+                    cout << "3. Virtual account" << endl;
+                    cout << "pilih opsi : ";
+                    cin >> pilihan;
+
+                    // Proses pembayaran
+                    if (pilihan == 1)
+                    {
+                         metode_pembayaran = "COD";
+                         cout << "Terima kasih telah melakukan pembelian dengan metode pembayaran " << metode_pembayaran << endl;
+                    }
+                    else if (pilihan == 2)
+                    {
+                         int nomor_kartu;
+                         float kirim_slado;
+                         cout << "Masukkan nomor kartu kredit: ";
+                         cin >> nomor_kartu;
+                         cout << "Masukkan saldo yang akan dikirim: Rp";
+                         cin >> kirim_slado;
+                         if (kirim_slado < total_pembayaran)
+                         {
+                              cout << "Jumlah digit tidak tepat" << endl;
+                              cout << "belanjaan dibatalkan" << endl;
+                         }
+                         else
+                         {
+                              cout << "Terima kasih telah melakukan pembelian dengan metode pembayaran " << metode_pembayaran << endl;
+                         }
+                    }
+                    else if (pilihan == 3)
+                    {
+
+                         metode_pembayaran = "virtual account";
+                         cout << "masukan code pin account eccomerce anda : " << endl;
+                         cin >> pin;
+                         if (pin != 123456)
+                         {
+                              cout << "code pin salah , pembayaran dibatalkan" << endl;
+                         }
+                         else
+                         {
+                              cout << "Terima kasih telah melakukan pembelian dengan metode pembayaran " << metode_pembayaran << endl;
+                         }
+                    }
+                    cout << endl;
+
+                    // sistem cashback
+                    float cashback;
+
+                    if (total_harga < 200000)
+                    {
+                         cashback = 0;
+                    }
+                    else if (total_harga < 300000)
+                    {
+                         cashback = 0.05 * total_harga;
+                    }
+                    else
+                    {
+                         cashback = 0.1 * total_harga;
+                    }
+                    cout << "Cashback yang Anda dapatkan adalah: Rp" << cashback << endl;
+               }
+
+               else
+               {
+                    cout << "Input salah" << endl;
+               }
+               cout << "Ulang Program ? (y,n) = ";
+               cin >> pilih;
+          } while (pilih == 'y');
+     }
+     else
+     {
+
+          cout << "code pin anda salah !!" << endl;
+     }
+
+     // Menu utama
+
+     return 0;
+}

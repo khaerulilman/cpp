@@ -1,0 +1,312 @@
+#include <iostream>
+#include <string>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+struct Biodata
+{
+    string nama;
+    string alamat;
+    string jenisKelamin;
+    string jurusanSMA;
+    string SMAasal;
+    int nisn;
+    int randomNumber;
+};
+
+struct Jurusan
+{
+    string nama;
+    string fakultas;
+};
+
+int main()
+{
+start:
+    string metodePembayaran;
+    string metodeUjian;
+    int jenisKelaminChoice;
+    srand(time(0));
+    // Data Biodata
+    Biodata biodata;
+    biodata.randomNumber = std::rand() % 90000 + 10000;
+    cout << "=== PENDAFTARAN TES MASUK UIN SGD BANDUNG ===" << endl
+         << endl;
+    cout << "Masukan Biodata Anda" << endl
+         << endl;
+    cout << "Masukan Nama Lengkap : ";
+    getline(cin, biodata.nama);
+    cout << "Masukan NISN Anda    : ";
+    cin >> biodata.nisn;
+    cin.ignore();
+    cout << "Tulis Alamat Lengkap : ";
+    getline(cin, biodata.alamat);
+    // Memilih jenis kelamin
+    cout << "Pilih Jenis Kelamin  :" << endl;
+    cout << "1. Laki-laki" << endl;
+    cout << "2. Perempuan" << endl;
+    cout << "Pilih Opsi (1,2)     : ";
+
+    cin >> jenisKelaminChoice;
+    cin.ignore();
+    switch (jenisKelaminChoice)
+    {
+    case 1:
+        biodata.jenisKelamin = "Laki-laki";
+        break;
+    case 2:
+        biodata.jenisKelamin = "Perempuan";
+        break;
+    default:
+        cout << "Pilihan tidak valid, Program diulang" << endl
+             << endl;
+        goto start;
+    }
+    cout << "Nama SMA Asal        : ";
+    getline(cin, biodata.SMAasal);
+    cout << "Jurusan di SMA : " << endl;
+    cout << "1. IPA" << endl;
+    cout << "2. IPS" << endl;
+    cout << "Pilih Opsi (1,2)    : ";
+
+    getline(cin, biodata.jurusanSMA);
+
+    switch (stoi(biodata.jurusanSMA))
+    {
+    case 1:
+        // Code to be executed if option 1 (IPA) is chosen
+        cout << "Anda memilih jurusan IPA" << endl;
+        break;
+    case 2:
+        // Code to be executed if option 2 (IPS) is chosen
+        cout << "Anda memilih jurusan IPS" << endl;
+        break;
+    default:
+        // Code to be executed if an invalid option is chosen
+        cout << "Pilihan tidak valid, Program diulang" << endl
+             << endl;
+        goto start;
+    }
+
+    cout << endl;
+
+    // Pilihan Fakultas dan Jurusan
+    Jurusan jurusan[] = {
+        // Fakultas Usluhudin
+        {"Aqidah dan Filsafat (S1)", "F Usluhudin"},
+        {"Ilmu Al-Qur'an dan Tafsir (S1)", "F Usluhudin"},
+        {"Ilmu Hadis (S1)", "F Usluhudin"},
+        {"Tasawuf Psikoterapi (S1)", "F Usluhudin"},
+        {"Studi Agama-Agama (S1)", "F Usluhudin"},
+
+        // Fakultas Tarbiyah
+        {"Pendidikan Agama Islam (S1)", "F Tarbiyah dan keguruan"},
+        {"Pendidikan Bahasa Arab (S1)", "F Tarbiyah dan keguruan"},
+        {"Manajemen Pendidikan Islam (S1)", "F Tarbiyah dan keguruan"},
+        {"Pendidikan Guru Madrasah Ibtidaiyah (S1)", "F Tarbiyah dan keguruan"},
+        {"Pendidikan Matematika (S1)", "F Tarbiyah dan keguruan"},
+        {"Pendidikan Fisika (S1)", "F Tarbiyah dan keguruan"},
+        {"Pendidikan Bahasa Inggris (S1)", "F Tarbiyah dan keguruan"},
+        {"Pendidikan Biologi (S1)", "F Tarbiyah dan keguruan"},
+        {"Pendidikan Kimia (S1)", "F Tarbiyah dan keguruan"},
+
+        // Fakultas Syariah dan Hukum
+        {"Hukum Keluarga (S1)", "F Syariah dan Hukum"},
+        {"Perbandingan Madzhab (S1)", "F Syariah dan Hukum"},
+        {"Hukum Ketatanegaraan Islam (S1)", "F Syariah dan Hukum"},
+        {"Ilmu Hukum (S1)", "F Syariah dan Hukum"},
+        {"Hukum Pidana Islam (S1)", "F Syariah dan Hukum"},
+        {"Hukum Ekonomi Syariah (Muamalah)  (S1)", "F Syariah dan Hukum"},
+
+        // Fakultas Dakwah dan Komunikasi
+        {"Komunikasi dan Penyiaran Islam (S1)", "F Dakwah dan Komunikasi"},
+        {"Ilmu Komunikasi Jurnalistik (S1)", "F Dakwah dan Komunikasi"},
+        {"Bimbingan dan Penyuluhan Islam (S1)", "F Dakwah dan Komunikasi"},
+        {"Pengembangan Masyarakat Islam (S1)", "F Dakwah dan Komunikasi"},
+        {"Manajemen Dakwah (S1)", "F Dakwah dan Komunikasi"},
+        {"Ilmu Komunikasi Hubungan Masyarakat (S1)", "F Dakwah dan Komunikasi"},
+
+        // Fakultas Adab dan Humaniora
+        {"Bahasa dan Sastra Arab (S1)", "F Adab dan Humaniora"},
+        {"Sejarah dan Peradaban Islam (S1)", "F Adab dan Humaniora"},
+        {"Bahasa dan Sastra Inggris (S1)", "F Adab dan Humaniora"},
+        {"Ilmu Perpustakaan (S1)", "F Adab dan Humaniora"},
+
+        // Fakultas Psikologi
+        {"Psikologi (S1)", "Fakultas Psikologi"},
+
+        // Fakultas Ilmu Sosial dan Ilmu Politik
+        {"Sosiologi (S1)", "F Ilmu Sosial dan Ilmu Politik"},
+        {"Administrasi Publik (S1)", "F Ilmu Sosial dan Ilmu Politik"},
+        {"Ilmu Politik (S1)", "F Ilmu Sosial dan Ilmu Politik"},
+
+        // Fakultas Saintek
+        {"Matematika (S1)", "F Saintek"},
+        {"Fisika (S1)", "F Saintek"},
+        {"Kimia (S1)", "F Saintek"},
+        {"Biologi (S1)", "F Saintek"},
+        {"Teknik Informatika (S1)", "F Saintek"},
+        {"Teknik Elektro (S1)", "F Saintek"},
+        {"Agroteknologi (S1)", "F Saintek"},
+
+        // Fakultas Ekonomi dan Bisnis
+        {"Ekonomi Syariah (S1)", "F Ekonomi dan Bisnis"},
+        {"Akuntansi Syariah (S1)", "F Ekonomi dan Bisnis"},
+        {"Perbankan Syariah (S1)", "F Ekonomi dan Bisnis"},
+        {"Manajemen Keuangan Syariah (S1)", "F Ekonomi dan Bisnis"}};
+
+    // Tampilkan Pilihan Fakultas dan Jurusan
+
+    if (biodata.jurusanSMA == "1")
+    {
+        cout << "Pilihan Fakultas dan Jurusan" << endl;
+        for (int i = 0; i < sizeof(jurusan) / sizeof(jurusan[0]); i++)
+        {
+            cout << i + 1 << ". " << jurusan[i].nama << " (" << jurusan[i].fakultas << ")" << endl;
+        }
+    }
+    else if (biodata.jurusanSMA == "2")
+    {
+        cout << "Pilihan Fakultas dan Jurusan" << endl;
+        for (int i = 0; i < sizeof(jurusan) / sizeof(jurusan[0]); i++)
+        {
+            if (i < 34 || i > 40)
+            {
+                cout << i + 1 << ". " << jurusan[i].nama << " (" << jurusan[i].fakultas << ")" << endl;
+            }
+        }
+        cout << "Beberapa nomor jurusan dihilangkan untuk jurusan IPS !!";
+    }
+
+    // Memilih jurusan maksimal 3 pilihan
+    cout << endl
+         << endl;
+    cout << "Banyak pilihan jurusan (Maksimal 3 pilihan): ";
+    int jumlahJurusan;
+    cin >> jumlahJurusan;
+    cin.ignore();
+    if (jumlahJurusan < 1 || jumlahJurusan > 3)
+    {
+        cout << "Jumlah jurusan yang dipilih tidak valid. Menggunakan jumlah jurusan default: 2" << endl;
+        jumlahJurusan = 2;
+    }
+    cout << endl;
+
+    for (int i = 0; i < jumlahJurusan; i++)
+    {
+        cout << "Jurusan pilihan ke-" << i + 1 << " (masukan nomor) : ";
+        string nomorJurusan;
+        getline(cin, nomorJurusan);
+
+        int nomor = stoi(nomorJurusan);
+
+        if (nomor < 1 || nomor > 48)
+        {
+            cout << "Nomor jurusan yang Anda pilih tidak tersedia" << endl;
+        }
+        else if (biodata.jurusanSMA == "2" && (nomor >= 35 && nomor <= 41))
+        {
+            cout << "Nomor jurusan yang Anda pilih tidak tersedia untuk jurusan IPS" << endl;
+            cout << "Program diulang" << endl
+                 << endl;
+            goto start;
+        }
+        else
+        {
+            cout << "Anda memilih jurusan: " << jurusan[nomor - 1].nama << " (" << jurusan[nomor - 1].fakultas << ")" << endl;
+        }
+    }
+
+    // Biaya pendaftaran
+    cout << endl;
+    cout << "Biaya Pendaftaran Tes sebesar : 200.000" << endl;
+
+    // Memilih metode pembayaran
+    cout << "Pilihan Metode Pembayaran: " << endl;
+    cout << "1. BSI" << endl;
+    cout << "2. BJB" << endl;
+    cout << "3. BCA" << endl;
+    cout << "4. Permata" << endl;
+    cout << "5. BNI" << endl;
+    cout << "6. Mandiri" << endl;
+    cout << "pilih Opsi (1,2,3,4,5,6) : ";
+    int metodePembayaranChoice;
+    cin >> metodePembayaranChoice;
+    cin.ignore();
+    switch (metodePembayaranChoice)
+    {
+    case 1:
+        metodePembayaran = "BSI";
+        break;
+    case 2:
+        metodePembayaran = "BJB";
+        break;
+    case 3:
+        metodePembayaran = "BCA";
+        break;
+    case 4:
+        metodePembayaran = "Permata";
+        break;
+    case 5:
+        metodePembayaran = "BNI";
+        break;
+    case 6:
+        metodePembayaran = "Mandiri";
+        break;
+    default:
+        cout << "Pilihan tidak valid, Pembayaran gagal diulang" << endl;
+        cout << "Program Diulang" << endl
+             << endl;
+        goto start;
+    }
+
+    // Memilih metode ujian
+    cout << endl;
+    cout << "Pilihan Metode Ujian: " << endl;
+    cout << "1. CBT" << endl;
+    cout << "2. Prestasi" << endl;
+    cout << "3. Tahfidz" << endl;
+    cout << "Pilih Opsi (1,2,3,4,5,6) = ";
+    int metodeUjianChoice;
+    cin >> metodeUjianChoice;
+    cin.ignore();
+    switch (metodeUjianChoice)
+    {
+    case 1:
+        metodeUjian = "CBT";
+        break;
+    case 2:
+        metodeUjian = "Prestasi";
+        break;
+    case 3:
+        metodeUjian = "Tahfidz";
+        break;
+    default:
+        cout << "Pilihan tidak valid, Program diulang" << endl
+             << endl;
+        goto start;
+    }
+
+    // Menampilkan data-data yang diinputkan
+    cout << endl;
+    cout << "==============================" << endl;
+    cout << "Data Pendaftaran Mahasiswa Baru" << endl;
+    cout << "==============================" << endl;
+    cout << "Nama Lengkap         : " << biodata.nama << endl;
+    cout << "Alamat Lengkap       : " << biodata.alamat << endl;
+    cout << "NISN                 : " << biodata.nisn << endl;
+    cout << "SMA Asal             : " << biodata.SMAasal << endl;
+    cout << "Jenis Kelamin        : " << biodata.jenisKelamin << endl;
+    cout << "Jurusan yang dipilih :" << endl;
+    for (int i = 0; i < jumlahJurusan; i++)
+    {
+        cout << i + 1 << ". " << jurusan[i].nama << " - " << jurusan[i].fakultas << endl;
+    }
+    cout << "Biaya Pendaftaran    : 200.000 (Status Sudah Bayar)" << endl;
+    cout << "Metode Pembayaran    : " << metodePembayaran << endl;
+    cout << "Metode Ujian         : " << metodeUjian << endl;
+    cout << "Code Test            : " << biodata.randomNumber << endl;
+
+    return 0;
+}

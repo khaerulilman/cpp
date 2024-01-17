@@ -1,0 +1,206 @@
+#include <iostream>
+#include <string.h>
+
+using namespace std;
+
+long int faktorial(int A);
+
+int main()
+{
+     cout << "BIODATA : " << endl;
+     cout << "Nama : Mochammad khaerul ilman" << endl;
+     cout << "Nim  : 1227050073" << endl;
+     cout << "Kelas: IF-B" << endl;
+
+     int opsi;
+     char lagi;
+     // prog 1
+     int prog1_tambah(int x);
+     // prog 2
+     int prog2_tambah(int &x);
+     // prog 3
+     void ulang(char karakter = '-', int jumlah = 10);
+     // prog 4
+     void tulis_cplus(int jumlah);
+     // pangkat
+     long pangkat(int x, int n);
+     // faktorial
+     long int faktorial(int A);
+     // luas lingkaran
+     long double luas_lingkaran(double r, int n);
+     do
+     {
+          cout << "Pilih Program Yang Akan Ditampilkan : " << endl;
+          cout << "1. Pemanggilan secara nilai (Call by Value)" << endl;
+          cout << "2. Pemanggilan secara referensi (Call by Reference)" << endl;
+          cout << "3. contoh program menyetel nilai default argumen fungsi" << endl;
+          cout << "4. program menampilkan banyak tulisan c++ dengan fungsi" << endl;
+          cout << "5. Menghitung Nilai Pangkat Dengan rekursif" << endl;
+          cout << "6. Menghitung Nilai Faktorial Dengan rekursif (tugas) " << endl;
+          cout << "7. Menghitung Luas Lingkaran Dengan Rekrusif (tugas)" << endl;
+          cout << "pilih opsi (1,2,3,4,5,6,7) = ";
+          cin >> opsi;
+          cout << endl;
+          switch (opsi)
+
+          {
+          case 1:
+
+               int a1, hasil1;
+               cout << "Masukkan Bilangan : ";
+               cin >> a1;
+               cout << "a awal = " << a1 << endl;
+               hasil1 = prog1_tambah(a1);
+               cout << "a akhir = " << a1 << endl;
+               cout << "Hasil = " << hasil1;
+               cout << endl;
+
+               break;
+          case 2:
+
+               int a2, hasil2;
+               cout << "Masukkan Bilangan : ";
+               cin >> a2;
+               cout << "Nilai a awal = " << a2 << endl;
+               hasil2 = prog2_tambah(a2);
+               cout << "Nilai a akhir = " << a2 << endl;
+               cout << "Hasil = " << hasil2;
+               cout << endl;
+
+               break;
+
+          case 3:
+               ulang('*', 5);
+               ulang('+');
+               ulang();
+
+               break;
+          case 4:
+               tulis_cplus(3); // untuk menampilkan tulisan c++
+
+               break;
+          case 5:
+               int x, y;
+
+               cout << "Menghitung x ^ y" << endl;
+               cout << "x = ";
+               cin >> x;
+               cout << "y = ";
+               cin >> y;
+               cout << x << " ^ " << y << " = " << pangkat(x, y) << endl;
+
+               break;
+          case 6:
+
+               int angka6, hasil6, uraian;
+
+               cout << "=== MENGHITUNG NILAI FAKTORIAL DENGAN REKURSIF ===" << endl;
+               cout << endl;
+               cout << "Masukan Nilai = ";
+               cin >> angka6;
+               cout << angka6 << "! = ";
+               hasil6 = 1;
+               // bentuk penguraian faktorial
+               for (int i = angka6; i >= 1; i--)
+               {
+                    hasil6 = hasil6 * i;
+                    cout << i;
+                    if (i <= angka6 && i > 1)
+                    {
+                         cout << " x ";
+                    }
+               }
+               // fungsi
+               hasil6 = faktorial(angka6);
+               cout << " = " << hasil6 << endl;
+
+               break;
+          case 7:
+               double r, hasil7;
+
+               cout << "=== MENGHITUNG LUAS LINGKARAN DENGAN REKRUSIF ===" << endl;
+               cout << "jari-jari = ";
+               cin >> r;
+
+               cout << "luas lingkaran = phi * " << r << " * " << r << " = " << luas_lingkaran(r, 3) << endl;
+
+               break;
+          default:
+               cout << "Pilih sesuai opsi yang tersedia" << endl
+                    << endl;
+          }
+          cout << endl;
+          cout << "Ingin memilih program lagi ? (y/n) = ";
+          cin >> lagi;
+          cout << endl;
+     } while (lagi != 'n');
+
+     cout << "Program telah selesai";
+     cout << endl;
+}
+
+// M khaerul ilman IF-B
+
+// fungsi prog 1
+int prog1_tambah(int x)
+{
+     cout << "x awal = " << x << endl;
+     x = x + 2;
+     cout << "x akhir = " << x << endl;
+
+     return x;
+}
+// fungsi prog 2
+int prog2_tambah(int &x)
+{
+     cout << "x awal = " << x << endl;
+     x = x + 2;
+     cout << "x akhir = " << x << endl;
+     return x;
+}
+// fungsi prog 3
+void ulang(char karakter, int jumlah)
+{
+     for (int i = 0; i < jumlah; i++)
+          cout << karakter;
+     cout << endl;
+}
+// fungsi prog 4
+void tulis_cplus(int jumlah)
+{
+     for (int i = 0; i < jumlah; i++)
+          cout << "C++" << endl;
+     cout << "Selesai" << endl;
+}
+
+// fungsi untuk pemanggilan pangkat
+long pangkat(int x, int n)
+{
+     if (n == 1)
+          return (x);
+     else
+          return (x * pangkat(x, n - 1));
+}
+
+// fungsi untuk pemanggilan faktorial
+long int faktorial(int p)
+{
+     if (p == 1)
+          return (p);
+     else
+          return (p * faktorial(p - 1));
+}
+// fungsi untuk pemanggilan luas lingkaran
+long double luas_lingkaran(double r, int n)
+{
+     if (n == 1)
+     {
+          double phi = 3.14159;
+          return (phi);
+     }
+     else
+     {
+          return (r * luas_lingkaran(r, n - 1));
+     }
+}
+

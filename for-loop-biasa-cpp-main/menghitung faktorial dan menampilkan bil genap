@@ -1,0 +1,91 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+
+     string nama = "Mochammad khaerul ilman";
+     string nim = "1227050073";
+     string lagi;
+     int opsi, angka, hasil, i;
+
+     cout << "BIODATA" << endl;
+     cout << "Nama : " << nama << endl;
+     cout << "Nim  : " << nim << endl
+          << endl;
+
+     do
+     {
+
+          cout << "Berikut program yang akan ditampilkan : " << endl;
+          cout << "(1) PROGRAM MENAMPILKAN BILANGAN GENAP DARI ANGKA 0-50 " << endl;
+          cout << "(1) PROGRAM MENGHITUNG FAKTORIAL DARI BILANGAN YANG DIINPUTKAN " << endl
+               << endl;
+          cout << "Silahkan pilih opsi program (1,2) = ";
+
+          cin >> opsi;
+          switch (opsi)
+          {
+
+          case 1:
+
+               cout << "===PROGRAM MENAMPILKAN BILANGAN GENAP DARI ANGKA 0-50===" << endl
+                    << endl;
+               for (i = 1; i <= 50; i++)
+               {
+                    if (i % 2 == 0)
+                    {
+                         cout << i << " ";
+                    }
+               }
+               cout << endl
+                    << endl
+                    << endl;
+
+               break;
+          case 2:
+               cout << "===PROGRAM MENGHITUNG FAKTORIAL DARI BILANGAN YANG DIINPUTKAN===" << endl
+                    << endl;
+
+               cout << "Masukan Angka: ";
+               cin >> angka;
+               cout << angka << "! = ";
+               hasil = 1;
+               for (i = angka; i >= 1; i--)
+               {
+                    hasil = hasil * i;
+                    cout << i;
+                    if (i <= angka && i > 1)
+                    {
+                         cout << " x ";
+                    }
+               }
+               cout << " = " << hasil << endl;
+               break;
+          default:
+
+               cout << "Pilih sesuai opsi yang tersedia" << endl
+                    << endl;
+          }
+          cout << "Ingin memilih program lagi ? (ya/tidak) = ";
+          cin >> lagi;
+     } while (lagi != "tidak");
+
+     cout << "Program telah selesai";
+     cout << endl;
+
+     return 0;
+}
+
+/*
+BIODATA
+Nama : Mochammad khaerul ilman
+Nim  : 1227050073
+
+Berikut program yang akan ditampilkan :
+(1) PROGRAM MENAMPILKAN BILANGAN GENAP DARI ANGKA 0-50
+(1) PROGRAM MENGHITUNG FAKTORIAL DARI BILANGAN YANG DIINPUTKAN
+
+Silahkan pilih opsi program (1,2) =
+*/

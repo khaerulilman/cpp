@@ -1,0 +1,69 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+
+    cout << "=== Kalkulator sederhana :) === " << endl;
+    cout << endl;
+    cout << "masukan nilai pertama = ";
+
+    double a, b, hasil;
+    string aritmatika;
+
+    cin >> a;
+
+    cout << "masukan opertaor (+,-,*,/) = ";
+
+    cin >> aritmatika;
+
+    cout << "masukan nilai kedua = ";
+
+    cin >> b;
+
+    if (aritmatika == "+")
+    {
+
+        hasil = a + b;
+        cout << "" << endl;
+        cout << "hasilnya = " << hasil;
+    }
+    else if (aritmatika == "-")
+    {
+
+        hasil = a - b;
+        cout << "" << endl;
+        cout << "hasilnya = " << hasil;
+    }
+    else if (aritmatika == "*")
+    {
+
+        hasil = a * b;
+        cout << "" << endl;
+        cout << "hasilnya = " << hasil;
+    }
+    else if (aritmatika == "/")
+    {
+
+        hasil = a / b;
+        cout << "" << endl;
+        cout << "hasilnya = " << hasil;
+    }
+
+    else
+    {
+
+        cout << "ada kesalahan ,coba lagi" << endl;
+    }
+}
+
+/*
+=== Kalkulator sederhana :) === 
+
+masukan nilai pertama = 3
+masukan opertaor (+,-,*,/) = /
+masukan nilai kedua = 2
+
+hasilnya = 1.5
+*/

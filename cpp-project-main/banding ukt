@@ -1,0 +1,166 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    cout << "===program banding ukt===" << endl;
+    int gaji_ortu = 0, listrik = 0, pajak = 0, ukt_awal = 0;
+    int kategori_pekerjaan_ortu, jumlah_saudara = 1, kategori_jumlah_saudara, kategori_listrik, kategori_pajak, kategori_gaji_ortu;
+    int kategori_ukt_awal;
+    int uktsesudah, poin, poin_ukt_awal, poin_gaji_ortu = 10, poin_pekerjaan_ortu, poin_jumlah_saudara;
+    string pekerjaan_ortu;
+    char ulang;
+
+    do
+    {
+        // ukt awal
+        cout << "Berapa ukt awal anda : " << endl;
+        cout << "(1) 1500000 \n(2) 3000000 \n(3) 4500000 \n(4) 6000000 \n(5) 7500000 " << endl;
+        cout << "pilih (1,2,3,4,5) = ";
+        cin >> kategori_ukt_awal;
+        cout << endl;
+        // gaji ortu
+        cout << "kategori gaji ortu : " << endl;
+        cout << "(1) 2000000 \n(2) 4000000 \n(3) 6000000 \n(4) 8000000 \n(5) 10000000" << endl;
+        cout << "pilih (1,2,3,4,5) = ";
+        cin >> kategori_gaji_ortu;
+        // kategori pekerjaan ortu
+        cout << "kategori pekerjaan : " << endl;
+        cout << "(1) WIRASWASTA \n(2) BURUH PABRIK \n(3) PETANI \n(4) SUPIR \n(5) HONORER" << endl;
+        cout << "pilih (1,2,3,4,5) = ";
+        cin >> kategori_pekerjaan_ortu;
+        switch (kategori_pekerjaan_ortu)
+        {
+        case 1:
+            pekerjaan_ortu = "wiraswasta kecil";
+            poin_pekerjaan_ortu = 3;
+            break;
+        case 2:
+            pekerjaan_ortu = "buruh pabrik";
+            poin_pekerjaan_ortu = 5;
+            break;
+        case 3:
+            pekerjaan_ortu = "petani";
+            poin_pekerjaan_ortu = 2;
+            break;
+        case 4:
+            pekerjaan_ortu = "supir";
+            poin_pekerjaan_ortu = 4;
+            break;
+        case 5:
+            pekerjaan_ortu = "honorer";
+            poin_pekerjaan_ortu = 1;
+            break;
+        default:
+            break;
+        }
+        // jumlah saudara
+        cout << "kategori jumlah saudara " << endl;
+        cout << "(1) 1 saudara \n(2) 2 saudara \n(3) 3 saudara \n(4) 4 saudara \n(5) 5 saudara" << endl;
+        cout << "pilih kategori saudara (1,2,3,4,5) = ";
+        cin >> kategori_jumlah_saudara;
+        switch (kategori_jumlah_saudara)
+        {
+        case 1:
+            jumlah_saudara = 1;
+            poin_jumlah_saudara = 5;
+            break;
+        case 2:
+            jumlah_saudara = 2;
+            poin_jumlah_saudara = 4;
+            break;
+        case 3:
+            jumlah_saudara = 3;
+            poin_jumlah_saudara = 3;
+            break;
+        case 4:
+            jumlah_saudara = 4;
+            poin_jumlah_saudara = 2;
+            break;
+        case 5:
+            jumlah_saudara = 5;
+            poin_jumlah_saudara = 1;
+            break;
+        }
+        // tagihan listrik
+        cout << "kategori tagihan listrik : " << endl;
+        cout << "(1) 100000 \n(2) 200000 \n(3) 300000 \n(4) 400000 \n(5) 500000" << endl;
+        cout << "pilih kategori tagihan listrik =";
+        cin >> kategori_listrik;
+        // pajak pembangunan
+        cout << "kategori pajak bumi : " << endl;
+        cout << "(1) 20000 \n(2) 40000 \n(3) 60000 \n(4) 80000 \n(5) 100000" << endl;
+        cout << "pilih kategori pajak bumi pembangunan = ";
+        cin >> kategori_pajak;
+
+        for (int i = 1; i <= kategori_ukt_awal; i++)
+        {
+            ukt_awal += 1500000;
+        }
+        for (int i = 1; i <= kategori_gaji_ortu; i++)
+        {
+            gaji_ortu += 2000000;
+        }
+
+        for (int i = 1; i <= kategori_listrik; i++)
+        {
+            listrik += 100000;
+        }
+        for (int i = 1; i <= kategori_pajak; i++)
+        {
+            pajak += 20000;
+        }
+
+        cout << "data anda : " << endl;
+        cout << "ukt awal        = " << ukt_awal << endl;
+        cout << "gaji ortu       = " << gaji_ortu << endl;
+        cout << "jumlah saudara  = " << jumlah_saudara << endl;
+        cout << "tagihan listrik = " << listrik << endl;
+        cout << "pajak           = " << pajak << endl;
+        cout << "pekerjaan ortu  = " << pekerjaan_ortu << endl;
+
+        poin = kategori_gaji_ortu + poin_jumlah_saudara + poin_pekerjaan_ortu + kategori_listrik + kategori_pajak;
+
+        if (poin >= 0 && poin <= 5)
+        {
+            uktsesudah = 1;
+        }
+        else if (poin >= 6 && poin <= 10)
+        {
+            uktsesudah = 2;
+        }
+        else if (poin >= 11 && poin <= 15)
+        {
+            uktsesudah = 3;
+        }
+        else if (poin >= 16 && poin <= 20)
+        {
+            uktsesudah = 4;
+        }
+        else if (poin >= 21 && poin < 25)
+        {
+            uktsesudah = 5;
+        }
+
+        if (uktsesudah > kategori_ukt_awal)
+        {
+            cout << "Anda mengalami penambahan golongan ukt\n";
+            cout << "UKT seharusnya untuk anda adalah Gololongan " << uktsesudah;
+        }
+        else if (uktsesudah < kategori_ukt_awal)
+        {
+            cout << "Anda mengalami penurunan golongan ukt\n";
+            cout << "UKT seharusnya untuk anda adalah Gololongan " << uktsesudah;
+        }
+        else
+        {
+            cout << "Ukt anda tetap sama " << uktsesudah;
+        }
+
+        cout << endl;
+
+        cout << "coba lagi program (y/n) = ";
+        cin >> ulang;
+    } while (ulang == 'y');
+}

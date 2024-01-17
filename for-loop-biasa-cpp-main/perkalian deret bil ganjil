@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+
+    int i, ii, total, input;
+    for (i = 1; i <= 10; i += 2)
+    {
+        total = 1;
+        for (ii = 1; ii <= i; ii += 2)
+        {
+            if (ii != 1)
+                cout << " * ";
+            cout << ii;
+            total *= ii;
+        }
+        cout << " = " << total << endl;
+    }
+}
+
+
+/*
+1 = 1
+1 * 3 = 3
+1 * 3 * 5 = 15
+1 * 3 * 5 * 7 = 105
+1 * 3 * 5 * 7 * 9 = 945
+*/

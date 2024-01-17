@@ -1,0 +1,74 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    cout << "=== Program Menampilkan Data Mahasiswa === :" << endl
+         << endl;
+    int Banyak_mahasiswa, number, number1;
+    cout << "Banyak mahasiswa = ";
+    cin >> Banyak_mahasiswa;
+    string input_nama[Banyak_mahasiswa];
+    int input_nim[Banyak_mahasiswa];
+    double input_nilai[Banyak_mahasiswa];
+    cout << "masukan nama, nim dan nilai mahasiswa :" << endl;
+    // Mochammad khaerul ilman
+    // 1227050073
+    // IF-B
+    for (int i = 0; i < Banyak_mahasiswa; ++i)
+    {
+        number = i + 1;
+        cout << number << ". ";
+        cout << "nama = ";
+        cin >> input_nama[i];
+        cout << "   nim  = ";
+        cin >> input_nim[i];
+        cout << "   nilai  = ";
+        cin >> input_nilai[i];
+    }
+    cout << endl;
+
+    cout << "Berikut " << Banyak_mahasiswa << " Data Mahasiswa : " << endl
+         << endl;
+
+    //  print array elements
+
+    for (int n = 0; n < Banyak_mahasiswa; ++n)
+    {
+        number1 = n + 1;
+        cout << "Data Ke-" << number1 << endl;
+        cout << "Nama  : " << input_nama[n] << endl;
+        cout << "Nim   : " << input_nim[n] << endl;
+        cout << "Nilai : " << input_nilai[n] << endl;
+        cout << "-----------------------------" << endl;
+    }
+
+    return 0;
+}
+
+/*
+=== Program Menampilkan Data Mahasiswa === :
+
+Banyak mahasiswa = 2
+masukan nama, nim dan nilai mahasiswa :
+1. nama = ty
+   nim  = 45
+   nilai  = 67
+2. nama = rt
+   nim  = 66
+   nilai  = 45
+
+Berikut 2 Data Mahasiswa :
+
+Data Ke-1
+Nama  : ty
+Nim   : 45
+Nilai : 67
+-----------------------------
+Data Ke-2
+Nama  : rt
+Nim   : 66
+Nilai : 45
+-----------------------------
+*/

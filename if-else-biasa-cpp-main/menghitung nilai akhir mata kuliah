@@ -1,0 +1,76 @@
+#include <iostream>
+#include <conio.h>
+
+using namespace std;
+
+int main()
+{
+
+	double x, y, z, nilai;
+	cout << endl;
+	cout << "===Program Menghitung Nilai Akhir Mata Kuliah===" << endl;
+	cout << endl;
+	cout << "Masukan Nilai Tugas = ";
+	cin >> x;
+	cout << "Masukan Nilai UTS = ";
+	cin >> y;
+	cout << "Masukan Nilai UAS = ";
+	cin >> z;
+
+	nilai = x * 30 / 100 + y * 30 / 100 + z * 40 / 100;
+
+	if (nilai > 100)
+	{
+
+		cout << "nilai melebihi 100 ,silahkan ulangi lagi" << endl;
+	}
+
+	else if (nilai <= 100 && nilai >= 90)
+	{
+		cout << "total nilai : " << nilai << endl;
+		cout << "Selamat anda mendapatkan nilai A , Pertahankan" << endl;
+	}
+	else if (nilai < 90 && nilai >= 80)
+	{
+		cout << "total nilai : " << nilai << endl;
+		cout << "Selamat anda mendapatkan nilai B " << endl;
+	}
+	else if (nilai < 80 && nilai >= 70)
+	{
+
+		cout << "total nilai : " << nilai << endl;
+		cout << "anda mendapatkan nilai C " << endl;
+	}
+	else if (nilai < 70 && nilai >= 60)
+	{
+
+		cout << "total nilai : " << nilai << endl;
+		cout << "anda mendapatkan nilai D " << endl;
+	}
+	else if (nilai >= 0 && nilai < 60)
+	{
+
+		cout << "total nilai : " << nilai << endl;
+		cout << "anda mendapatkan nilai E " << endl;
+	}
+	else if (nilai < 0)
+	{
+
+		cout << "tidak ada nilai negatif ,silahkan ulangi lagi" << endl;
+	}
+
+	getch();
+}
+
+
+/*
+===Program Menghitung Nilai Akhir Mata Kuliah===
+
+Masukan Nilai Tugas = 90
+Masukan Nilai UTS = 90
+Masukan Nilai UAS = 90
+total nilai : 90
+Selamat anda mendapatkan nilai A , Pertahankan
+
+
+*/

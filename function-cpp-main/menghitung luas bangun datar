@@ -1,0 +1,112 @@
+#include <iostream>
+
+using namespace std;
+
+void luasSegitiga();
+void luasPersegi();
+void luasLingkaran();
+void luaspersegipanjang();
+
+void luasSegitiga()
+{
+    int alas, tinggi, hasil_akhir;
+    cout << "Input panjang alas	: ";
+    cin >> alas;
+    cout << "Input tinggi		: ";
+    cin >> tinggi;
+    hasil_akhir = 0.5 * alas * tinggi;
+    cout << "Luas = " << hasil_akhir;
+    cout << endl;
+}
+void luasPersegi()
+{
+    int sisi, hasil_akhir;
+    cout << "input sisi = ";
+    cin >> sisi;
+    hasil_akhir = sisi * sisi;
+    cout << "Luas = " << hasil_akhir;
+    cout << endl;
+}
+void luasLingkaran()
+{
+    int jari_jari, hasil_akhir;
+    cout << "Input panjang jari-jari : ";
+    cin >> jari_jari;
+    hasil_akhir = 3.14159 * jari_jari * jari_jari;
+    cout << "Luas = " << hasil_akhir;
+    cout << endl;
+}
+void luaspersegipanjang()
+{
+    int p, t, hasil_akhir;
+    cout << "Input panjang : ";
+    cin >> p;
+    cout << "input tinggi : ";
+    cin >> t;
+    hasil_akhir = p * t;
+    cout << "Luas = " << hasil_akhir;
+    cout << endl;
+}
+
+main()
+{
+    int a, b;
+    char ulang;
+
+    do
+    {
+
+        int opsi;
+        cout << "menu menghitung bidang datar : " << endl;
+        cout << "(1)LUAS SEGITIGA\n";
+        cout << "(2)LUAS PERSEGI\n";
+        cout << "(3)LUAS LINGKARAN\n";
+        cout << "(4)LUAS PERSEGI PANJANG\n";
+        cout << "input pilihan = ";
+        cin >> opsi;
+        switch (opsi)
+        {
+        case 1:
+
+            cout << "luas segitiga" << endl;
+            luasSegitiga();
+            break;
+
+        case 2:
+            cout << "luas persegi" << endl;
+            luasPersegi();
+            break;
+
+        case 3:
+            cout << "luas lingkaran" << endl;
+            luasLingkaran();
+            break;
+
+        case 4:
+            cout << "luas persegi panjang" << endl;
+            luaspersegipanjang();
+            break;
+
+        default:
+            cout << "menu tidak tersedia" << endl;
+        }
+        cout << "hitung lagi ? (y/n):";
+        cin >> ulang;
+    } while (ulang != 'n');
+    cout << "\nTerimakasih!\n";
+    return 0;
+}
+
+
+`
+menu menghitung bidang datar : 
+(1)LUAS SEGITIGA
+(2)LUAS PERSEGI
+(3)LUAS LINGKARAN
+(4)LUAS PERSEGI PANJANG
+input pilihan = 2
+luas persegi
+input sisi = 4
+Luas = 16
+hitung lagi ? (y/n):
+`

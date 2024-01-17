@@ -1,0 +1,81 @@
+#include <iostream>
+#include <string>
+#include <conio.h>
+using namespace std;
+
+int main()
+{
+
+    // type data
+    string username, password;
+    int chance = 3;
+    int limit;
+    int command = 0;
+    int money = 0;
+    int balance = 100;
+
+returnlogin:
+nexttransaction:
+
+    // proses login dan perulangan
+    do
+    {
+        string buat_username, buat_password, username, password;
+
+        cout << endl
+             << "Silahkan Buat Akun Terlebih Dahulu " << endl;
+
+        cout << "Buat Username = ";
+        cin >> buat_username;
+        cout << "Buat Password = ";
+        cin >> buat_password;
+        cout << endl;
+
+        for (int i = 1; i < 5; i++)
+        {
+            cout << "Masukan username : ";
+            cin >> username;
+            cout << "Masukan password : ";
+            cin >> password;
+            cout << endl;
+
+            if (username == buat_username && password == buat_password)
+            {
+                cout << "Selamat, Anda berhasil login" << endl;
+                break;
+            }
+            else if (i == 4)
+            {
+            }
+            else
+            {
+
+                cout << "Username / Password anda salah (X) Percobaan ke-" << i;
+                cout << endl;
+            }
+        }
+        if (username != buat_username && password != buat_password)
+        {
+            cout << endl;
+            cout << "anda telah salah memasukan password sebanyak 3x " << endl;
+            cout << "harap tunggu 1 jam untuk kembali Login  " << endl;
+        }
+    } while (true);
+    cout << "pak";
+}
+
+
+
+/*
+Silahkan Buat Akun Terlebih Dahulu 
+Buat Username = we
+Buat Password = rt
+
+Masukan username : we
+Masukan password : rt
+
+Selamat, Anda berhasil login
+
+Silahkan Buat Akun Terlebih Dahulu 
+Buat Username =
+*/
